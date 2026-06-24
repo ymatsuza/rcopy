@@ -1,0 +1,23 @@
+[project]
+name = "rcopy"
+version = "0.1.0"
+description = "Cross-platform recursive copy with gitignore-style excludes and a dry-run preview"
+requires-python = ">=3.11"
+dependencies = ["typer>=0.12"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+rcopy = "rcopy.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rcopy"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
